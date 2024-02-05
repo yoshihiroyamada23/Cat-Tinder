@@ -14,7 +14,7 @@ cats = [
     image: 'http://tinyurl.com/cozy-fire-cat'
   },
   {
-    name: 'YoHiro',
+    name: 'Hiro',
     age: 12,
     enjoys: 'Food mostly, really just food.',
     image: 'http://tinyurl.com/anime-cat-food'

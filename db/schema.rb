@@ -22,5 +22,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_03_004157) do
     t.datetime "updated_at", null: false
     t.text "image"
   end
-# something
+
 end
