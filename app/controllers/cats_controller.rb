@@ -7,20 +7,27 @@ class CatsController < ApplicationController
       
     def create
     # Create a new cat
-        cat = Cat.create(cat_params)
-        render json: cat
+    cat = Cat.create(cat_params)
+    render json: cat
+end
+
+    def update
+    cat = Cat.find(params[:id])
+    cat.update(cat_params)
+    if cat.valid?
+      render json: cat
+    else
+      render json: cat.errors
     end
-        
+  end
+  
+def destroy
+end
     # Handle strong parameters, so we are secure
     private
     def cat_params
         params.require(:cat).permit(:name, :age, :enjoys, :image)
     end
       
-    def update
-    end
-      
-    def destroy
-    end
 
 end

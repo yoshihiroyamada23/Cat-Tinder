@@ -42,6 +42,31 @@ RSpec.describe "Cats", type: :request do
     end
   end
 
+describe "PATCH /update" do
+  it "updates a cat" do
+      # The params we are going to send with the request
+    cat_params = {
+      cat: {
+        name: 'Richard',
+        age: 5,
+        enjoys: 'something',
+        image: 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1036&q=80'
+      }
+      }
+      # Send the request to the server
+      put '/cats/:id', params: cat_params
+  
+      # Assure that we get a success back
+      expect(response).to have_http_status(200)
+  
+      # Look up the cat we expect to be created in the db
+      cat = Cat.first
+  
+      # Assure that the created cat has the correct attributes
+      expect(cat.name).to eq 'Richard'
+      expect(cat.age).to eq 5
+      expect(cat.enjoys).to eq 'something'
+    end
+  end
 
 end
-  
